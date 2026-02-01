@@ -1,30 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://dndsijncd6y27"]
+[gd_scene format=3 uid="uid://dndsijncd6y27"]
 
-[ext_resource type="PackedScene" uid="uid://drgucj7eudlcy" path="res://Scenes/Tavern_Scene/Bar/bar.blend" id="1_5563f"]
+[ext_resource type="PackedScene" uid="uid://1jm5ginddbpg" path="res://Scenes/Tavern_Scene/Bar/bar.blend" id="1_5563f"]
 [ext_resource type="PackedScene" uid="uid://ciufdy028q2fy" path="res://Scenes/player_1/player_1.tscn" id="1_15102"]
-[ext_resource type="PackedScene" uid="uid://c32ebajgygvgg" path="res://Scenes/Tavern_Scene/Table/table1.blend" id="2_iq4if"]
+[ext_resource type="PackedScene" uid="uid://bsscs5p5qeqtk" path="res://Scenes/Tavern_Scene/Table/table1.blend" id="2_iq4if"]
 [ext_resource type="Script" uid="uid://rgeo42ueouhx" path="res://Scenes/dice_display.gd" id="4_5563f"]
-[ext_resource type="Texture2D" uid="uid://voxkcaq8iii8" path="res://Scenes/tavern_ui_assets/dice_sheet.png" id="4_15102"]
+[ext_resource type="Texture2D" uid="uid://cjh1orkud66pg" path="res://Scenes/tavern_ui_assets/dice_sheet.png" id="4_15102"]
 
-[node name="Game_Room" type="Node3D"]
+[node name="Game_Room" type="Node3D" unique_id=1030124598]
 
-[node name="bar" parent="." instance=ExtResource("1_5563f")]
+[node name="bar" parent="." unique_id=521149932 instance=ExtResource("1_5563f")]
 
-[node name="Player1" parent="." instance=ExtResource("1_15102")]
+[node name="Player1" parent="." unique_id=2140141659 instance=ExtResource("1_15102")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=732893319]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="table1" parent="." instance=ExtResource("2_iq4if")]
+[node name="table1" parent="." unique_id=799899227 instance=ExtResource("2_iq4if")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=807869180]
 transform = Transform3D(1, -3.921681e-07, 5.7993196e-07, 2.2870783e-07, 0.9659258, 0.2588191, -6.6167183e-07, -0.2588191, 0.9659258, 2.3530085e-07, 1.1275041, 5.7903056)
 current = true
 fov = 55.615807
 size = 5.0720057
 
-[node name="UserControls" type="Control" parent="."]
+[node name="UserControls" type="Control" parent="." unique_id=1839829460]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,97 +32,98 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UserControls"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UserControls" unique_id=980631425]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = 4.0
 
-[node name="Top" type="HBoxContainer" parent="UserControls/VBoxContainer"]
+[node name="Top" type="HBoxContainer" parent="UserControls/VBoxContainer" unique_id=995132685]
 layout_mode = 2
 
-[node name="Middle" type="Control" parent="UserControls/VBoxContainer"]
+[node name="Middle" type="Control" parent="UserControls/VBoxContainer" unique_id=880683809]
 custom_minimum_size = Vector2(0, 678)
 layout_mode = 2
 
-[node name="Dice_Display" type="HBoxContainer" parent="UserControls/VBoxContainer"]
+[node name="Dice_Display" type="HBoxContainer" parent="UserControls/VBoxContainer" unique_id=436630005]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 script = ExtResource("4_5563f")
 
-[node name="Dice1" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display"]
+[node name="Dice1" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display" unique_id=236295631]
 scale = Vector2(1.6666666, 1.6666666)
 texture = ExtResource("4_15102")
 centered = false
 hframes = 6
 
-[node name="Dice2" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display"]
+[node name="Dice2" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display" unique_id=1456633143]
 position = Vector2(90, 0)
 scale = Vector2(1.6666666, 1.6666666)
 texture = ExtResource("4_15102")
 centered = false
 hframes = 6
 
-[node name="Dice3" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display"]
+[node name="Dice3" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display" unique_id=1728684097]
 position = Vector2(180, 0)
 scale = Vector2(1.6666666, 1.6666666)
 texture = ExtResource("4_15102")
 centered = false
 hframes = 6
 
-[node name="Dice4" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display"]
+[node name="Dice4" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display" unique_id=698741970]
 position = Vector2(270, 0)
 scale = Vector2(1.6666666, 1.6666666)
 texture = ExtResource("4_15102")
 centered = false
 hframes = 6
 
-[node name="Dice5" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display"]
+[node name="Dice5" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display" unique_id=771623562]
 position = Vector2(360, 0)
 scale = Vector2(1.6666666, 1.6666666)
 texture = ExtResource("4_15102")
 centered = false
 hframes = 6
 
-[node name="Dice6" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display"]
+[node name="Dice6" type="Sprite2D" parent="UserControls/VBoxContainer/Dice_Display" unique_id=1711696238]
 position = Vector2(450.00003, 0)
 scale = Vector2(1.6666666, 1.6666666)
 texture = ExtResource("4_15102")
 centered = false
 hframes = 6
 
-[node name="Bottom" type="HBoxContainer" parent="UserControls/VBoxContainer"]
+[node name="Bottom" type="HBoxContainer" parent="UserControls/VBoxContainer" unique_id=764032224]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 
-[node name="NextActionBtn" type="Button" parent="UserControls/VBoxContainer/Bottom"]
+[node name="NextActionBtn" type="Button" parent="UserControls/VBoxContainer/Bottom" unique_id=895009255]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "roll"
 
-[node name="ShakeBtn" type="Button" parent="UserControls/VBoxContainer/Bottom"]
+[node name="ShakeBtn" type="Button" parent="UserControls/VBoxContainer/Bottom" unique_id=85276748]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Shake"
 flat = true
 
-[node name="Roll_timer" type="Timer" parent="UserControls/VBoxContainer/Bottom"]
+[node name="Roll_timer" type="Timer" parent="UserControls/VBoxContainer/Bottom" unique_id=715527546]
 wait_time = 0.3
 one_shot = true
 
-[node name="OtherPlayers" type="Node3D" parent="."]
+[node name="OtherPlayers" type="Node3D" parent="." unique_id=735184017]
 
-[node name="PlayerPos1" type="Node3D" parent="OtherPlayers"]
+[node name="PlayerPos1" type="Node3D" parent="OtherPlayers" unique_id=1710496638]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -3)
 
-[node name="PlayerPos2" type="Node3D" parent="OtherPlayers"]
+[node name="PlayerPos2" type="Node3D" parent="OtherPlayers" unique_id=796461964]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 0)
 
-[node name="PlayerPos3" type="Node3D" parent="OtherPlayers"]
+[node name="PlayerPos3" type="Node3D" parent="OtherPlayers" unique_id=2023465351]
 transform = Transform3D(0, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 0, -1, 0, 0)
 
 [connection signal="pressed" from="UserControls/VBoxContainer/Bottom/NextActionBtn" to="Player1/Shaker" method="_on_next_btn_pressed"]
 [connection signal="pressed" from="UserControls/VBoxContainer/Bottom/ShakeBtn" to="Player1/DiceController" method="roll_children"]
+[connection signal="timeout" from="UserControls/VBoxContainer/Bottom/Roll_timer" to="Player1/DiceController" method="roll_children"]
 
 [editable path="Player1"]

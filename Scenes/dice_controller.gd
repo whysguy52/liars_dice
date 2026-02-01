@@ -14,8 +14,8 @@ func _process(_delta):
 
 func roll_children():
 	if rollCount == 5:
-		$"../UserControls/VBoxContainer/Bottom/NextActionBtn".flat = false
-		$"../UserControls/VBoxContainer/Bottom/NextActionBtn".disabled = false
+		$"../../UserControls/VBoxContainer/Bottom/NextActionBtn".flat = false
+		$"../../UserControls/VBoxContainer/Bottom/NextActionBtn".disabled = false
 		rollCount = 0
 		return
 	for i in diceList:
