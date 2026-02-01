@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3wupmq1hniyi"]
+
+[ext_resource type="Script" uid="uid://bocy7ykjgeqsq" path="res://Scenes/shaker/shaker.gd" id="1_hcpbq"]
+[ext_resource type="PackedScene" uid="uid://c8nwfh3k1d7qt" path="res://blender_files/Shaker/Shaker.blend" id="1_uitbx"]
+
+[sub_resource type="Animation" id="Animation_bneen"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -1.2985786, 1.575736)
+
+[sub_resource type="Animation" id="Animation_37c05"]
+resource_name = "toCast"
+length = 0.4
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -1.0965925, 3.0258818, 0.4, 1, 0, -1.44, 2)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cup")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.9914448, 0, 0, 0.13052611, 0.4, 1, 1, 0, 0, -4.37114e-08)
+
+[sub_resource type="Animation" id="Animation_b8wto"]
+resource_name = "toHome"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -1.44, 2, 0.5, 1, 0, -1.2985786, 1.575736)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cup")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 0, 0, -4.37114e-08, 0.5, 1, 0.92387956, 0, 0, 0.38268334)
+
+[sub_resource type="Animation" id="Animation_nvg2y"]
+resource_name = "toShake"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -1.2985786, 1.575736, 1, 1, 0, -1.1931852, 3.0517635)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cup")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.92387956, 0, 0, 0.38268334, 0.26666665, 1, 0.9914448, 0, 0, 0.13052611)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2c0dg"]
+_data = {
+&"RESET": SubResource("Animation_bneen"),
+&"toCast": SubResource("Animation_37c05"),
+&"toHome": SubResource("Animation_b8wto"),
+&"toShake": SubResource("Animation_nvg2y")
+}
+
+[node name="Shaker" type="Node3D"]
+script = ExtResource("1_hcpbq")
+
+[node name="Cup" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.7071068, -0.7071065, 0, 0.7071065, -0.7071068, 0, -1.2985786, 1.575736)
+
+[node name="Shaker" parent="Cup" instance=ExtResource("1_uitbx")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2c0dg")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

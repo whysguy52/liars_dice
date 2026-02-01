@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://o3x4if1wx76l"]
+
+[ext_resource type="PackedScene" uid="uid://cvp758qsxfc8c" path="res://Dice/dice.blend" id="1_nm6bl"]
+[ext_resource type="Script" uid="uid://b25lttgsrmtgc" path="res://Scenes/dice/dice.gd" id="1_pjaby"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lbekh"]
+size = Vector3(0.16, 0.16, 0.16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6mbf"]
+size = Vector3(0.12011719, 0.016, 0.12011719)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o6mbf"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.33
+radial_segments = 32
+
+[node name="Dice" type="RigidBody3D"]
+script = ExtResource("1_pjaby")
+
+[node name="dice" parent="." instance=ExtResource("1_nm6bl")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lbekh")
+
+[node name="Faces" type="Node3D" parent="."]
+
+[node name="Face1" type="Area3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Faces/Face1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07031977, 0)
+shape = SubResource("BoxShape3D_o6mbf")
+
+[node name="Face2" type="Area3D" parent="Faces"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Faces/Face2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07031977, 0)
+shape = SubResource("BoxShape3D_o6mbf")
+
+[node name="Face3" type="Area3D" parent="Faces"]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Faces/Face3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07031977, 0)
+shape = SubResource("BoxShape3D_o6mbf")
+
+[node name="Face4" type="Area3D" parent="Faces"]
+transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, 1.3113416e-07, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Faces/Face4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07031977, 0)
+shape = SubResource("BoxShape3D_o6mbf")
+
+[node name="Face5" type="Area3D" parent="Faces"]
+transform = Transform3D(4.371139e-08, -1, -8.742277e-08, -1, -4.371139e-08, 0, -3.8213714e-15, 8.742277e-08, -1, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Faces/Face5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07031977, 0)
+shape = SubResource("BoxShape3D_o6mbf")
+
+[node name="Face6" type="Area3D" parent="Faces"]
+transform = Transform3D(-1, 0, 3.8213705e-15, 0, 1, 8.742277e-08, -3.8213714e-15, 8.742277e-08, -1, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Faces/Face6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07031977, 0)
+shape = SubResource("BoxShape3D_o6mbf")
+
+[node name="side_detector" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0.2, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="side_detector"]
+visible = false
+mesh = SubResource("CylinderMesh_o6mbf")

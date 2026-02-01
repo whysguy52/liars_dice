@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn0h8c1vfg7p1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6cdoh"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="UserControls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserControls"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Information" type="HBoxContainer" parent="UserControls/VBoxContainer"]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UserControls/VBoxContainer"]
+custom_minimum_size = Vector2(0, 576)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="UserControls/VBoxContainer"]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 2
+
+[node name="ShakeBtn" type="Button" parent="UserControls/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(540, 0)
+layout_mode = 2
+text = "roll"
+icon = SubResource("ViewportTexture_6cdoh")
